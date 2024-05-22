@@ -21,6 +21,11 @@ int main(int argc, char** argv)
 	// Render image
 	for (int h = 0; h < image_height; ++h)
 	{
+
+		// Progress indicator
+		std::clog << "\rScanlines remaining: " << (image_height - h) << " " << std::flush;
+
+		// Write pixels
 		for (int w = 0; w < image_width; ++w)
 		{
 			auto r = double(w) / (image_width - 1);
@@ -34,6 +39,9 @@ int main(int argc, char** argv)
 			image_file << ir << " " << ig << " " << ib << std::endl;
 		}
 	}
+
+	// Indicate completion
+	std::clog << "\rDone.\t\t\t\t" << std::endl;
 
 	// Finish writing to ppm image file
 	image_file.close();
