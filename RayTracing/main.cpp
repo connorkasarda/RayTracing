@@ -21,7 +21,6 @@ int main(int argc, char** argv)
 	// Render image
 	for (int h = 0; h < image_height; ++h)
 	{
-
 		// Progress indicator
 		std::clog << "\rScanlines remaining: " << (image_height - h) << " " << std::flush;
 
