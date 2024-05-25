@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "Color.h"
 
 int main(int argc, char** argv)
 {
@@ -27,15 +28,12 @@ int main(int argc, char** argv)
 		// Write pixels
 		for (int w = 0; w < image_width; ++w)
 		{
-			auto r = double(w) / (image_width - 1);
-			auto g = double(h) / (image_height - 1);
-			auto b = 0.0;
+			auto pixelColor = Color(
+				double(w) / (image_width - 1),
+				double(h) / (image_height - 1),
+				0.0);
 
-			int ir = static_cast<int>(255.999 * r);
-			int ig = static_cast<int>(255.999 * g);
-			int ib = static_cast<int>(255.999 * b);
-
-			image_file << ir << " " << ig << " " << ib << std::endl;
+			printColor(image_file, pixelColor);
 		}
 	}
 

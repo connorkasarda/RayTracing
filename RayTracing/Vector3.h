@@ -2,6 +2,7 @@
 #define VECTOR3_H
 
 #include <cmath>
+#include <iostream>
 
 class Vector3
 {
@@ -139,6 +140,15 @@ private:
 	*/
 	double coords[3] {};
 };
+
+/**
+@brief To string method for Vector3
+@return Color contents
+*/
+inline std::ostream& operator<<(std::ostream& out, const Vector3& vec)
+{
+	return out << vec.x() << " " << vec.y() << " " << vec.z();
+}
 
 /**
 @brief Adds 2 Vector3s
